@@ -21,7 +21,7 @@ def send():
         text.insert(END,"\n" + "Bot: Please enter an image file ")
     elif reply.__contains__("2"):
         text.insert(END,"\n" + "Bot: Too bad, you're missing out")
-    elif reply.contains("3"):
+    elif reply.__contains__("3"):
         text.insert(END,"\n" + "Bot: Enter another image file or q to quit")
         png = cv2.imread("edge.png")
         cv2.imshow("edge", png)
@@ -33,7 +33,6 @@ def send():
         text.insert(END,"\n" + "Bot: Ok")
     elif reply.__contains__("no"):
         text.insert(END,"\n" + "Bot: Same deal: 3 for yes, 4 for no")
-
     elif reply.__contains__("4"):
         text.insert(END,"\n" + "Bot:")
     elif reply.__contains__("q"):
