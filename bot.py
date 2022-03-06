@@ -13,12 +13,14 @@ def send():
         text.insert(END, "\n" + "Bot: nice to hear that")
     else:
         text.insert(END, "\n" + "Bot: Sorry I didnt get it.")
+    e.delete(0,"end")
 
 root = Tk()
 text = Text(root, bg='pink')
-text.grid(row=0,column=0,columnspan=2)
-e = Entry(root,width=80)
-send = Button(root,text='Send',bg='blue',width=20,command=send).grid(row=1,column=1)
-e.grid(row=1,column=0)
+text.grid(row=0, column=0, columnspan=2)
+e = Entry(root, width=80)
+send = Button(root, text='Send', bg='blue', width=20, command=send).grid(row=1, column=1)
+
+e.grid(row=1, column=0)
 root.title(' CHATBOT')
 root.mainloop()
