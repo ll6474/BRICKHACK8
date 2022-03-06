@@ -8,7 +8,6 @@ class Cartoonizer:
         The class uses a bilateral filter and adaptive thresholding to create
         a cartoon effect.
     """
-
     def __init__(self):
         pass
 
@@ -39,27 +38,3 @@ class Cartoonizer:
         img_edge = cv2.cvtColor(img_edge, cv2.COLOR_GRAY2RGB)
         cv2.imwrite("edge.png", img_edge)
         return cv2.bitwise_and(img_color, img_edge)
-
-
-tmp_canvas = Cartoonizer()
-
-run = True
-while run:
-    file_name = input("Enter a filename or 'q' to quit: ")  # File_name will come here
-    # print("Click any button for next image")
-    file_exists = exists(file_name)
-    if file_exists or file_name == 'q':
-        if file_name == 'q':
-            cv2.destroyAllWindows()
-            run = False
-        else:
-            res = tmp_canvas.render(file_name)
-            cv2.imwrite("Cartoon version.jpg", res)
-            cv2.imshow("Cartoon version", res)
-            cv2.waitKey(500)
-            cv2.destroyAllWindows()
-            while cv2.getWindowProperty('Cartoon version', cv2.WND_PROP_VISIBLE) >= 1:
-                print(cv2.getWindowProperty("Cartoon version", res))
-                cv2.destroyAllWindows()
-    else:
-        print("File does not exists, Enter another filename")
