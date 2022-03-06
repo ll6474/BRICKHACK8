@@ -1,23 +1,24 @@
-from chatterbot import ChatBot
+from tkinter import *
 
-# Inorder to train our bot, we have
-# to import a trainer package
-# "ChatterBotCorpusTrainer"
-from chatterbot.trainers import ChatterBotCorpusTrainer
+def send():
+    send = "You:"+ e.get()
+    text.insert(END,"\n" + send)
+    if(e.get()=='hi'):
+        text.insert(END, "\n" + "Bot: hello")
+    elif(e.get()=='hello'):
+        text.insert(END, "\n" + "Bot: hi")
+    elif (e.get() == 'how are you?'):
+        text.insert(END, "\n" + "Bot: i'm fine and you?")
+    elif (e.get() == "i'm fine too"):
+        text.insert(END, "\n" + "Bot: nice to hear that")
+    else:
+        text.insert(END, "\n" + "Bot: Sorry I didnt get it.")
 
-# Give a name to the chatbot “corona bot”
-# and assign a trainer component.
-chatbot = ChatBot('corona bot')
-
-# Create a new trainer for the chatbot
-trainer = ChatterBotCorpusTrainer(chatbot)
-
-# Now let us train our bot with multiple corpus
-trainer.train("chatterbot.corpus.english.greetings",
-              "chatterbot.corpus.english.conversations")
-
-response = chatbot.get_response('What is your Number')
-print(response)
-
-response = chatbot.get_response('Who are you?')
-print(response)
+root = Tk()
+text = Text(root, bg='pink')
+text.grid(row=0,column=0,columnspan=2)
+e = Entry(root,width=80)
+send = Button(root,text='Send',bg='blue',width=20,command=send).grid(row=1,column=1)
+e.grid(row=1,column=0)
+root.title(' CHATBOT')
+root.mainloop()
