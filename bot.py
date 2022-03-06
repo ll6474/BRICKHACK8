@@ -1,8 +1,8 @@
 from tkinter import *
+
 import training
 import cv2
 from os.path import exists
-from PIL import Image
 
 
 def send():
@@ -23,6 +23,8 @@ def send():
         text.insert(END,"\n" + "Bot: Too bad, you're missing out")
     elif reply.__contains__("3"):
         text.insert(END,"\n" + "Bot: ")
+        png = cv2.imread("edge.png")
+        cv2.imshow("edge", png)
 
     elif reply.__contains__("4"):
         text.insert(END,"\n" + "Bot:")
