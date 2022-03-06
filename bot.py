@@ -27,11 +27,11 @@ def send():
         cv2.imshow("edge", png)
         cv2.waitKey(1000)
         cv2.destroyAllWindows()
-    elif reply.contains("4"):
+    elif reply.__contains__("4"):
         text.insert(END,"\n" + "Bot: Are you sure?")
-    elif reply.contains("yes"):
+    elif reply.__contains__("yes"):
         text.insert(END,"\n" + "Bot: Ok")
-    elif reply.contains("no"):
+    elif reply.__contains__("no"):
         text.insert(END,"\n" + "Bot: Same deal: 3 for yes, 4 for no")
 
     elif reply.__contains__("4"):
