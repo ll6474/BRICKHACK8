@@ -3,7 +3,7 @@ from tkinter import *
 def send():
     send = "You:"+ e.get()
     text.insert(END,"\n" + send)
-    if(e.get()=='hi'):
+    if(e.get() == 'hi'):
         text.insert(END, "\n" + "Bot: hello")
     elif(e.get()=='hello'):
         text.insert(END, "\n" + "Bot: hi")

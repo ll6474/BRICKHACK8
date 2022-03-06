@@ -9,6 +9,9 @@ class Cartoonizer:
         a cartoon effect.
     """
 
+    def __init__(self):
+        pass
+
     def render(self, img_rgb):
         img_rgb = cv2.imread(img_rgb)
         numDownSamples = 1  # number of downscaling steps
@@ -51,11 +54,9 @@ while run:
             run = False
         else:
             res = tmp_canvas.render(file_name)
-
             cv2.imwrite("Cartoon version.jpg", res)
             cv2.imshow("Cartoon version", res)
-            wait_time = 500
-            cv2.waitKey(wait_time)
+            cv2.waitKey(500)
             cv2.destroyAllWindows()
             while cv2.getWindowProperty('Cartoon version', cv2.WND_PROP_VISIBLE) >= 1:
                 print(cv2.getWindowProperty("Cartoon version", res))
