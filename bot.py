@@ -3,13 +3,14 @@ from tkinter import *
 def send():
     send = "You:"+ e.get()
     text.insert(END,"\n" + send)
-    if(e.get() == 'hi'):
+    reply = e.get().lower()
+    if(reply =='hi'):
         text.insert(END, "\n" + "Bot: hello")
-    elif(e.get()=='hello'):
+    elif(reply=='hello'):
         text.insert(END, "\n" + "Bot: hi")
-    elif (e.get() == 'how are you?'):
+    elif (reply == 'how are you?'):
         text.insert(END, "\n" + "Bot: i'm fine and you?")
-    elif (e.get() == "i'm fine too"):
+    elif (reply == "i'm fine too"):
         text.insert(END, "\n" + "Bot: nice to hear that")
     else:
         text.insert(END, "\n" + "Bot: Sorry I didnt get it.")
