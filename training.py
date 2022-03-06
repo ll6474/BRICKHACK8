@@ -1,5 +1,7 @@
 import cv2
-import time
+from os.path import exists
+
+
 class Cartoonizer:
     """Cartoonizer effect
         A class that applies a cartoon effect to an image.
@@ -42,28 +44,21 @@ run = True
 while run:
     file_name = input("Enter a filename or 'q' to quit: ")  # File_name will come here
     # print("Click any button for next image")
-    try:
+    file_exists = exists(file_name)
+    if file_exists or file_name == 'q':
         if file_name == 'q':
             cv2.destroyAllWindows()
             run = False
         else:
-                # if file_name == 'q':
-                #     cv2.destroyAllWindows()
-                #     run = False
-                res = tmp_canvas.render(file_name)
+            res = tmp_canvas.render(file_name)
 
-                cv2.imwrite("Cartoon version.jpg", res)
-                cv2.imshow("Cartoon version", res)
-                wait_time = 5000
-                # while cv2.getWindowProperty('Cartoon version', cv2.WND_PROP_VISIBLE) >= 1:
-                #     print(cv2.getWindowProperty("Cartoon version", res))
-                #     keyCode = cv2.waitKey(wait_time)
-                #     cv2.destroyAllWindows()
-
-                cv2.waitKey(wait_time)
-                while cv2.getWindowProperty('Cartoon version', cv2.WND_PROP_VISIBLE) >= 1:
-                    print(cv2.getWindowProperty("Cartoon version", res))
-                    cv2.destroyAllWindows()
-
-    except FileNotFoundError as e:
-        print("File not found.")
+            cv2.imwrite("Cartoon version.jpg", res)
+            cv2.imshow("Cartoon version", res)
+            wait_time = 500
+            cv2.waitKey(wait_time)
+            cv2.destroyAllWindows()
+            while cv2.getWindowProperty('Cartoon version', cv2.WND_PROP_VISIBLE) >= 1:
+                print(cv2.getWindowProperty("Cartoon version", res))
+                cv2.destroyAllWindows()
+    else:
+        print("File does not exists, Enter another filename")
